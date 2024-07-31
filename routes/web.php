@@ -21,6 +21,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     })->name('dashboard');
 
     Route::resource('contacts', ContactController::class);
+    Route::delete('/contacts/{id}', [ContactController::class, 'destroy'])->name('contact.destroy');
 });
 
 Route::middleware('auth')->group(function () {
